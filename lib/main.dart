@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_app/controllers/main_controller.dart';
+import 'package:music_app/pages/home.dart';
+import 'package:music_app/pages/play_music.dart';
 
 main(List<String> args) {
   runApp(MyApp());
@@ -28,6 +30,12 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: DefaultPage(),
+      initialRoute: '/defaultPage',
+      getPages: [
+        GetPage(name: "/defaultPage", page: () => DefaultPage()),
+        GetPage(name: "/home", page: () => HomePage()),
+        GetPage(name: "/playMusic", page: () => PlayMusicPage())
+      ],
     );
   }
 }

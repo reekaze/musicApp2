@@ -7,8 +7,9 @@ class HomeController extends GetxController {
     ["IU", "Lilac", "IU.png"]
   ];
   var playlists = [
-    ["AKMU", "Dinosaur", "AKMU-Dinosaur.mp3", "AKMU - Dinosaur.jpg"],
-    ["Bolbbalgan 4", "Some", "Bolbbalgan4-Sone.mp3", "BOL4 - some.jfif"],
-    ["IU", "Coin", "IU-Coin.mp3", "IU - Coin.jpg"]
-  ];
+    ["AKMU", "Dinosaur", "AKMU-Dinosaur.mp3", "AKMU - Dinosaur.jpg", "Play"],
+    ["Bolbbalgan 4", "Some", "Bolbbalgan4-Some.mp3", "BOL4 - some.jfif", "Red Planet"],
+    ["IU", "Coin", "IU-Coin.mp3", "IU - Coin.jpg", "Lilac"]
+  ].obs;
+  var currentIndex = 0.obs;
 }

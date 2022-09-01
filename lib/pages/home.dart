@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:music_app/controllers/home_controller.dart';
-import 'package:music_app/pages/play_music.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -181,7 +180,10 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: homeController.playlists.map((playlist) {
                 return GestureDetector(
-                  onTap: () => Get.to(() => PlayMusicPage(), arguments: []),
+                  onTap: () {
+                    homeController.currentIndex.value = homeController.playlists.indexOf(playlist);
+                    Get.toNamed("/playMusic");
+                  },
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: Container(
@@ -192,12 +194,15 @@ class HomePage extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(14),
-                            child: Image.asset(
-                              "assets/images/${playlist[3]}",
-                              height: 64,
-                              width: 64,
+                          Hero(
+                            tag: "image${homeController.playlists.indexOf(playlist)}",
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(14),
+                              child: Image.asset(
+                                "assets/images/${playlist[3]}",
+                                height: 64,
+                                width: 64,
+                              ),
                             ),
                           ),
                           SizedBox(
